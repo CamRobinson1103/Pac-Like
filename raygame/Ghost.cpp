@@ -11,7 +11,8 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	m_pathfindBehavior->setColor(color);
 	addBehavior(m_pathfindBehavior);
 }
-
+//I have an idea what I wan to do for the assessment. I need to actually put it in physical (digital...?) form.
+//What I wan to do
 Ghost::~Ghost()
 {
 	delete m_pathfindBehavior;
