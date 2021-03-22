@@ -9,7 +9,7 @@ Pac::Pac(float x, float y, float maxSpeed)
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
 }
-
+//CUZ WHEN WE JUMPIN AND POPPIN WE JOPPIN GENSHGENA
 Pac::~Pac()
 {
 	delete m_keyboardBehavior;
@@ -34,5 +34,10 @@ void Pac::onCollision(Actor* other)
 		setWorldPostion(tilePosition);
 
 		setVelocity({ 0, 0 });
+	}
+
+	if (Ghost* ghost = dynamic_cast<Ghost*>(other))
+	{
+
 	}
 }

@@ -16,7 +16,7 @@ void NodeGraph::drawGraph(Node* start)
 	std::deque<Node*>* drawnList = new std::deque<Node*>();
 	drawConnectedNodes(start, drawnList);
 	delete drawnList;
-}
+} 
 
 void NodeGraph::drawNode(Node* node, int color)
 {
