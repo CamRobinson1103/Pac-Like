@@ -37,7 +37,8 @@ void NodeGraph::drawConnectedNodes(Node* node, std::deque<Node*>* drawnList)
 	drawnList->push_back(node);
 
 	//For each Edge in this node's connections
-	for (Edge e : node->connections) {
+	for (Edge e : node->connections) 
+	{
 		//Draw the Edge
 		DrawLine((int)node->position.x, (int)node->position.y, (int)e.target->position.x, (int)e.target->position.y, WHITE);
 		//Draw the cost

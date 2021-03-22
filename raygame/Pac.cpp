@@ -9,7 +9,7 @@ Pac::Pac(float x, float y, float maxSpeed)
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
 }
-//CUZ WHEN WE JUMPIN AND POPPIN WE JOPPIN GENSHGENA
+
 Pac::~Pac()
 {
 	delete m_keyboardBehavior;
