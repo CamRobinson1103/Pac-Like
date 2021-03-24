@@ -33,5 +33,6 @@ private:
 	Maze* m_maze;
 
 	Actor* m_target = nullptr;
+	
 };
 
