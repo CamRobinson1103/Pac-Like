@@ -27,10 +27,10 @@ bool Scene::removeActor(int index)
 
 bool Scene::removeActor(Actor* actor)
 {
-    if (actor = nullptr) return false;
+    if (actor == nullptr) return false;
     for (int i = 0; i < m_actors.size(); i++)
     {
-        if (m_actors[i] = actor) {
+        if (m_actors[i] == actor) {
             m_actors.erase(m_actors.begin() + i);
             return true;
         }
@@ -101,4 +101,3 @@ void Scene::end()
 
     m_started = false;
 }
-
