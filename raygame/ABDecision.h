@@ -8,14 +8,12 @@ public:
 
 	ABDecision(Decision* leftChild = nullptr, Decision* rightChild = nullptr);
 
-	///<summary>
-	/// Checks the condition and the transitions to a different decision based on the return value
-	///</summary>
+
+	//Changes decision depending on what happens 
 	virtual void makeDecision(Agent* agent, float deltaTime) override;
 
-	///<summary>
-	/// Checks if a certain condition has been met and returns the result
-	///</summary>
+
+	//Checks conditions and returns false
 	virtual bool checkCondition(Agent* agent, float deltaTime) { return false; }
 
 private:

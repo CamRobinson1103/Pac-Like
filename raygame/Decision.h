@@ -3,9 +3,7 @@
 
 class Agent;
 
-///<summary>
-/// Abstract class for all decisions
-///</summary>
+// A class for decisions
 class Decision
 {
 public:

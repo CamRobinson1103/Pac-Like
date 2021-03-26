@@ -63,11 +63,11 @@ void Ghost::onCollision(Actor* other)
 
 	if (Pac* pac = dynamic_cast<Pac*>(other))
 	{
-
+		m_gotCooties = false;
 	}
 
 }
-
+//Checks if ghost had collided with the player
 bool Ghost::checkCollision(Actor* other)
 {
 	return Actor::checkCollision(other);
