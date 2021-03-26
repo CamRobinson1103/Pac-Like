@@ -68,10 +68,22 @@
     <ClCompile Include="PathfindBehavior.cpp">
       <Filter>Engine Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mud.cpp">
+    <ClCompile Include="ABDecision.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EvadeBehavior.cpp">
+    <ClCompile Include="DecisionBehavior.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeDecision.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FleePathBehavior.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>Pac Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cooties.cpp">
       <Filter>Pac Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -124,10 +136,25 @@
     <ClInclude Include="PathfindBehavior.h">
       <Filter>Engine Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mud.h">
+    <ClInclude Include="Decision.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EvadeBehavior.h">
+    <ClInclude Include="ABDecision.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionBehavior.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeDecision.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FleePathBehavior.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>Pac Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cooties.h">
       <Filter>Pac Header Files</Filter>
     </ClInclude>
   </ItemGroup>

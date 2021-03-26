@@ -1,9 +1,11 @@
 #pragma once
 #include "Agent.h"
 #include "SeekPathBehavior.h"
-#include "EvadeBehavior.h"
+#include "FleePathBehavior.h"
 
 class Maze;
+class DecisionBehavior;
+class Cooties;
 
 class Ghost : public Agent
 {
@@ -21,8 +23,16 @@ public:
 
 	virtual void onCollision(Actor* other) override;
 
-	/// <returns>The current target</returns>
+	bool checkCollision(Actor* other);
+
+	///<returns>The current target</returns>
 	Actor* getTarget();
+	SeekPathBehavior* getSeek() { return m_seekPathBehavior; }
+	FleePathBehavior* getFlee() { return m_fleePathBehavior; }
+
+	bool getgotCooties() { return m_gotCooties; }
+	void setgotCooties(bool gotCooties) { m_gotCooties = gotCooties; }
+
 	/// <summary>
 	/// Set the target of the ghost
 	/// </summary>
@@ -30,11 +40,15 @@ public:
 	void setTarget(Actor* target);
 
 private:
-	SeekPathBehavior* m_pathfindBehavior;
-	EvadeBehavior* m_evadeBehavior;
+	SeekPathBehavior* m_seekPathBehavior;
+	FleePathBehavior* m_fleePathBehavior;
+	DecisionBehavior* m_decisionBehavior;
+	Cooties* m_cooties;
+	bool m_gotCooties = true;
+
 	Maze* m_maze;
 
 	Actor* m_target = nullptr;
-	
 };
+
 

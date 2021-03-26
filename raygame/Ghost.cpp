@@ -1,22 +1,37 @@
 #include "Ghost.h"
+#include "Pac.h"
 #include "Maze.h"
 #include "Wall.h"
 #include "raylib.h"
+#include "DecisionBehavior.h"
+#include "SeekDecision.h"
+#include "FleeDecision.h"
+#include "Cooties.h"
 
 Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	: Agent(x, y, Maze::TILE_SIZE / 4.0f, maxSpeed, maxSpeed, color)
 {
 	m_maze = maze;
-	m_pathfindBehavior = new SeekPathBehavior(maze);
-	m_pathfindBehavior->setColor(color);
-	addBehavior(m_pathfindBehavior);
-	addBehavior(m_evadeBehavior);
+	m_seekPathBehavior = new SeekPathBehavior(maze);
+	m_fleePathBehavior = new FleePathBehavior(maze);
+
+	SeekDecision* seek = new SeekDecision();
+	FleeDecision* flee = new FleeDecision();
+	m_cooties = new Cooties(seek, flee);
+	m_decisionBehavior = new DecisionBehavior(m_cooties);
+	m_seekPathBehavior->setColor(color);
+	m_fleePathBehavior->setColor(color);
+	addBehavior(m_decisionBehavior);
+	addBehavior(m_seekPathBehavior);
+	addBehavior(m_fleePathBehavior);
 }
 
 Ghost::~Ghost()
 {
-	delete m_pathfindBehavior;
-	delete m_evadeBehavior;
+	delete m_seekPathBehavior;
+	delete m_fleePathBehavior;
+	delete m_cooties;
+	delete m_decisionBehavior;
 }
 
 void Ghost::update(float deltaTime)
@@ -26,8 +41,7 @@ void Ghost::update(float deltaTime)
 
 void Ghost::draw()
 {
-	m_pathfindBehavior->draw(this);
-	m_evadeBehavior->draw(this);
+	m_seekPathBehavior->draw(this);
 	Agent::draw();
 }
 
@@ -46,13 +60,24 @@ void Ghost::onCollision(Actor* other)
 
 		setVelocity({ 0, 0 });
 	}
+
+	if (Pac* pac = dynamic_cast<Pac*>(other))
+	{
+
+	}
+
+}
+
+bool Ghost::checkCollision(Actor* other)
+{
+	return Actor::checkCollision(other);
 }
 
 void Ghost::setTarget(Actor* target)
 {
 	m_target = target;
-	m_pathfindBehavior->setTarget(target);
-	m_evadeBehavior->setTarget(target);
+	m_seekPathBehavior->setTarget(target);
+	m_fleePathBehavior->setTarget(target);
 }
 
 Actor* Ghost::getTarget()

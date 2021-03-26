@@ -57,9 +57,6 @@ Maze::Tile Maze::createTile(int x, int y, TileKey key)
 		tile.cost = 1.0f;
 		break;
 	case TileKey::MUD:
-		tile.cost = 5.0f;
-		tile.actor = new Mud(position.x, position.y);
-		addActor(tile.actor);
 		break;
 	case TileKey::WALL:
 		tile.cost = 100.0f;
