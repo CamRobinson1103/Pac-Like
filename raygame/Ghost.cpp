@@ -10,12 +10,13 @@ Ghost::Ghost(float x, float y, float maxSpeed, int color, Maze* maze)
 	m_pathfindBehavior = new SeekPathBehavior(maze);
 	m_pathfindBehavior->setColor(color);
 	addBehavior(m_pathfindBehavior);
+	addBehavior(m_evadeBehavior);
 }
-//I have an idea what I wan to do for the assessment. I need to actually put it in physical (digital...?) form.
-//What I wan to do
+
 Ghost::~Ghost()
 {
 	delete m_pathfindBehavior;
+	delete m_evadeBehavior;
 }
 
 void Ghost::update(float deltaTime)
@@ -26,6 +27,7 @@ void Ghost::update(float deltaTime)
 void Ghost::draw()
 {
 	m_pathfindBehavior->draw(this);
+	m_evadeBehavior->draw(this);
 	Agent::draw();
 }
 
@@ -50,6 +52,7 @@ void Ghost::setTarget(Actor* target)
 {
 	m_target = target;
 	m_pathfindBehavior->setTarget(target);
+	m_evadeBehavior->setTarget(target);
 }
 
 Actor* Ghost::getTarget()

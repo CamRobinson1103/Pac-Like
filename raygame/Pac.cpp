@@ -4,7 +4,7 @@
 #include "raylib.h"
 
 Pac::Pac(float x, float y, float maxSpeed)
-	: Agent(x, y, Maze::TILE_SIZE / 2.5f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
+	: Agent(x, y, Maze::TILE_SIZE / 4.0f, maxSpeed, maxSpeed, (int)0xFFFF66FF)
 {
 	m_keyboardBehavior = new KeyboardBehavior(maxSpeed * 100);
 	addBehavior(m_keyboardBehavior);
@@ -35,9 +35,7 @@ void Pac::onCollision(Actor* other)
 
 		setVelocity({ 0, 0 });
 	}
-
-	if (Ghost* ghost = dynamic_cast<Ghost*>(other))
-	{
+	else if (Mud* mud = dynamic_cast<Mud*>(other)) {
 
 	}
 }

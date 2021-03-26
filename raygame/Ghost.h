@@ -1,6 +1,7 @@
 #pragma once
 #include "Agent.h"
 #include "SeekPathBehavior.h"
+#include "EvadeBehavior.h"
 
 class Maze;
 
@@ -30,6 +31,7 @@ public:
 
 private:
 	SeekPathBehavior* m_pathfindBehavior;
+	EvadeBehavior* m_evadeBehavior;
 	Maze* m_maze;
 
 	Actor* m_target = nullptr;
